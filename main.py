@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════════
-#  TEAM RBC — Squad Bot (Create → Invite → Accept → PK → In-Game)
+#  SachinDev X FFFZ — Squad Bot (Create → Invite → Accept → PK → In-Game)
 # ═══════════════════════════════════════════════════════════════════
 import sys, asyncio, httpx, random, json, socket, struct, time, os, uuid
 import itertools, secrets, traceback, base64
@@ -21,6 +21,7 @@ from protobuf_decoder.protobuf_decoder import Parser
 from message_ids import MESSAGE_ID_TO_NAME
 import RbcTeam_pb2
 import RbcFF_pb2
+import StartMatch_pb2
 import thunderFF_pb2
 
 from dashboard_server import bot_state, start_web_dashboard
@@ -829,7 +830,7 @@ BR_HEX = (
 async def start_game_battle_royale(region, client_version, writer, key, iv):
     packet = bytes.fromhex(BR_HEX)
     try:
-        proto = CguFF_pb2.StartMatch(); proto.ParseFromString(packet)
+        proto = StartMatch_pb2.StartUDPMatch(); proto.ParseFromString(packet)
         if hasattr(proto.main, 'region_list') and len(proto.main.region_list) > 0:
             proto.main.region_list[0].region = region
             if len(proto.main.region_list) > 1: proto.main.region_list[1].region = region
@@ -2423,7 +2424,7 @@ def load_accounts():
 # ═══════════════════════════ MAIN ═══════════════════════════
 async def main():
     print_colored("=" * 60, Colors.CYAN)
-    print_colored("  TEAM RBC — Squad Bot (Create/Invite/Accept/PK)", Colors.GREEN)
+    print_colored("  SachinDev X FFFZ — Squad Bot (Create/Invite/Accept/PK)", Colors.GREEN)
     print_colored("=" * 60, Colors.CYAN)
     print_info(f"Match interval: {START_MATCH_INTERVAL}s | Offline: {NEW_MATCH_DELAY}s")
     print_info("Mode: BATTLE ROYALE ONLY")

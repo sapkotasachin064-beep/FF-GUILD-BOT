@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # ============================================================
-#   CGU — FREE FIRE 4-BOT TEAM + AUTO CREATE + MOVEMENT
+#   SachinDev X FFFZ — FREE FIRE 4-BOT TEAM + AUTO CREATE + MOVEMENT
 #   + Auto-load accounts + TCP-idle-on-match + All-done restart
 #   + FIXED: match-end detection + friend-request accept
 #   + AUTO-RESTART: no match 90s (HANYA saat ONLINE/SEARCHING)
@@ -2589,7 +2589,7 @@ async def major_register(release_v, access_token, open_id, name, game_version,
         traceback.print_exc()
         return None
 
-async def create_four_accounts(region: str, clan_id: str, count: int = 4, password: str = "ANON"):
+async def create_four_accounts(region: str, clan_id: str, count: int = 4, password: str = "FFFZ"):
     bot_state.creating = True
     bot_state.create_progress = []
 
@@ -2641,7 +2641,7 @@ async def create_four_accounts(region: str, clan_id: str, count: int = 4, passwo
                     _prog(f"❌ bot {i+1}: payload build failed")
                     continue
 
-                nickname_final = "ANON•" + "".join(
+                nickname_final = "FFFZ•" + "".join(
                     random.choices(string.ascii_uppercase + string.digits, k=5))
                 mr = await major_register(release_v, access_token, open_id,
                                           nickname_final, game_version, login_url, lang)
@@ -2921,11 +2921,11 @@ async def serve_index(request):
         except Exception:
             continue
     return aiohttp.web.Response(
-        text="<h1>RAW ANON</h1><p>index.html not found</p>",
+        text="<h1>SachinDev X FFFZ</h1><p>index.html not found</p>",
         content_type="text/html")
 
 async def api_ping(request):
-    return aiohttp.web.json_response({"pong": True, "app": "RAW ANON", "version": "2.0"})
+    return aiohttp.web.json_response({"pong": True, "app": "SachinDev X FFFZ", "version": "2.0"})
 
 async def api_stats(request):
     try:
@@ -3004,7 +3004,7 @@ async def api_create_team(request):
         region = str(body.get("region", "ID")).upper()
         clan_id = str(body.get("clan_id", "")).strip()
         count = int(body.get("count", 4))
-        password = str(body.get("password", "ANON")).strip() or "ANON"
+        password = str(body.get("password", "FFFZ")).strip() or "FFFZ"
         if not clan_id:
             return aiohttp.web.json_response({"ok": False, "error": "clan_id required"})
         if bot_state.creating:
@@ -3200,7 +3200,7 @@ async def start_web_server():
     site = aiohttp.web.TCPSite(runner, WEB_HOST, WEB_PORT)
     await site.start()
 
-    print_success(f"[WEB] RAW ANON Dashboard → http://localhost:{WEB_PORT}")
+    print_success(f"[WEB] SachinDev X FFFZ Dashboard → http://localhost:{WEB_PORT}")
     print_info("[WEB] Registered routes:")
     for r in app.router.routes():
         method = ",".join(r.method)
@@ -3210,7 +3210,7 @@ async def start_web_server():
 # ==================== MAIN ====================
 async def main():
     print("\033[95m" + "╔══════════════════════════════════════════════════════╗" + "\033[0m")
-    print("\033[96m" + "║   Free Fire 4-Bot Team | Auto Create | Movement      ║" + "\033[0m")
+    print("\033[96m" + "║   SachinDev X FFFZ | 4-Bot Team | Auto Create        ║" + "\033[0m")
     print("\033[95m" + "╚══════════════════════════════════════════════════════╝" + "\033[0m")
     try:
         await start_web_server()

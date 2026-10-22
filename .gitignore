@@ -3,3 +3,8 @@
 logs/
 __pycache__/
 .venv/
+
+# Credentials and runtime data: never commit these.
+accounts.json
+token_cache.json
+DARK_MASTER/

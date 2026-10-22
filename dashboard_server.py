@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-FreeFire Level Up Bot - Professional Web Dashboard & Real-Time EXP Tracker
+SachinDev X FFFZ - Professional Web Dashboard & Real-Time EXP Tracker
 Embedded Async Web Server (aiohttp)
 Optimized for ultra-smooth operation, zero memory leaks, and dynamic multi-account control.
 """
@@ -378,9 +378,9 @@ bot_state = BotState()
 # Fallback HTML if templates/index.html is missing
 FALLBACK_INDEX_HTML = """<!DOCTYPE html>
 <html>
-<head><title>Command Center</title></head>
+<head><title>SachinDev X FFFZ — Command Center</title></head>
 <body style="background:#0a0a12;color:#fff;font-family:sans-serif;text-align:center;padding:50px;">
-<h1>BOT RUNNING</h1>
+<h1>SACHINDEV X FFFZ — BOT RUNNING</h1>
 <p>templates/index.html is loading...</p>
 </body>
 </html>"""

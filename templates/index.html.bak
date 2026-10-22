@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>SPIDER — Command Center</title>
+<title>SachinDev X FFFZ — Command Center</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -329,7 +329,7 @@ body::after{
             <div class="logo-ring"></div>
             <div class="logo-core"><i class="fa-solid fa-bolt"></i></div>
         </div>
-        <div class="brand-name">SPIDER</div>
+        <div class="brand-name">SachinDev X FFFZ</div>
         <div class="brand-sub">Command Center</div>
         <div class="brand-badge"><span><span class="dot"></span>Developer Zone</span></div>
         <form onsubmit="login(event)">
@@ -341,7 +341,7 @@ body::after{
             <div id="login-error" class="login-err"></div>
             <button class="login-btn" type="submit"><i class="fa-solid fa-shield-halved"></i> Unlock Command Center</button>
         </form>
-        <div class="login-foot">Protected Access • <strong>Premium Engine</strong><br>SPIDER • Level Up System</div>
+        <div class="login-foot">Protected Access • <strong>FFFZ Engine</strong><br>SachinDev X FFFZ • Level Up System</div>
     </div>
 </section>
 
@@ -354,7 +354,7 @@ body::after{
         <div class="brand-block">
             <div class="brand-mark"><div class="brand-mark-core"><i class="fa-solid fa-bolt"></i></div></div>
             <div>
-                <div class="brand-name-main">SPIDER</div>
+                <div class="brand-name-main">SachinDev X FFFZ</div>
                 <div class="brand-tag">
                     <span class="live-pill"><span class="dot"></span>ONLINE</span>
                     <span class="hide-sm">•</span>
@@ -461,7 +461,7 @@ body::after{
                     <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--neon-lime);box-shadow:0 0 12px var(--neon-lime);animation:dotPulse 1.4s infinite;"></span>
                     Live Stream
                 </span>
-                <span>SPIDER • Premium Engine</span>
+                <span>SachinDev X FFFZ • FFFZ Engine</span>
             </div>
         </div>
 
@@ -639,7 +639,7 @@ function unlockApp(isRestore){
         app.style.display = "block";
         fetchStats();
         setInterval(fetchStats, 3000);
-        toast("Welcome to Command Center, SPIDER", "success");
+        toast("Welcome to Command Center, SachinDev X FFFZ", "success");
     }, 400);
 }
 

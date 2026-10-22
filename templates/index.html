@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CODEXGOJO — Level Up Bot</title>
+<title>SachinDev X FFFZ — Level Up Bot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -262,14 +262,14 @@ select.input{width:auto;cursor:pointer;}
 <canvas id="confetti"></canvas>
 <div class="toasts" id="toasts"></div>
 
-<div id="boot" title="Click to skip"><div><div class="big">CODEXGOJO</div><pre id="boot-text"></pre></div></div>
+<div id="boot" title="Click to skip"><div><div class="big">SachinDev X FFFZ</div><pre id="boot-text"></pre></div></div>
 
 <div class="container">
   <div class="topbar">
     <div class="brand">
-      <div class="logo"><span><b>C</b></span></div>
+      <div class="logo"><span><b>S</b></span></div>
       <div class="brand-info">
-        <div class="glitch" data-text="CODEXGOJO">CODEXGOJO</div>
+        <div class="glitch" data-text="SachinDev X FFFZ">SachinDev X FFFZ</div>
         <div class="tagline">
           <span>Level Up Bot</span>
           <span class="pill live" id="conn-pill"><i class="fa-solid fa-circle"></i><span id="conn-text">LIVE</span></span>
@@ -373,8 +373,8 @@ select.input{width:auto;cursor:pointer;}
             </select>
           </div>
           <div id="guest-fields">
-            <div class="field"><label>Guest UID</label><input type="text" class="input" id="acc-uid" placeholder="7644913583" autocomplete="off"></div>
-            <div class="field"><label>Password / Secret</label><input type="text" class="input" id="acc-password" placeholder="ZERO_GRAVITY_4NM38" autocomplete="off"></div>
+            <div class="field"><label>Guest UID</label><input type="text" class="input" id="acc-uid" placeholder="1000000001" autocomplete="off"></div>
+            <div class="field"><label>Password / Secret</label><input type="text" class="input" id="acc-password" placeholder="FFFZ_DEMO_KEY" autocomplete="off"></div>
           </div>
           <div id="token-fields" style="display:none;">
             <div class="field"><label>Access token</label><textarea class="input" id="acc-token" placeholder="Paste token here…"></textarea></div>
@@ -423,14 +423,14 @@ select.input{width:auto;cursor:pointer;}
 </div>
 
 <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
-<div class="wm">DESIGNED BY<b>CODEXGOJO</b></div>
+<div class="wm">DESIGNED BY<b>SachinDev X FFFZ</b></div>
 
 <script>
 /* ---------- helpers ---------- */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const store = {
-  get(k,d){ try{ const v = localStorage.getItem('cgj_'+k); return v===null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set(k,v){ try{ localStorage.setItem('cgj_'+k, JSON.stringify(v)); }catch(e){} }
+  get(k,d){ try{ const v = localStorage.getItem('sdfz_'+k); return v===null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem('sdfz_'+k, JSON.stringify(v)); }catch(e){} }
 };
 const esc = t => t==null ? '' : String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const fmt = n => Math.round(n||0).toLocaleString();
@@ -501,7 +501,7 @@ function rainDraw(){
   const rgb = cs.getPropertyValue(Math.random()<.2 ? '--b-rgb' : '--a-rgb').trim();
   bgx.fillStyle = 'rgba(5,2,10,.12)'; bgx.fillRect(0,0,bg.width,bg.height);
   bgx.font = '15px JetBrains Mono, monospace';
-  const chars = '01CODEXGOJO<>/{}#$';
+  const chars = '01SACHINDEVXFFFZ<>/{}#$';
   for(let i=0;i<cols;i++){
     bgx.fillStyle = `rgba(${rgb},.9)`;
     bgx.fillText(chars[Math.floor(Math.random()*chars.length)], i*18, drops[i]*18);
@@ -561,7 +561,7 @@ function tier(level){
 const demo = {
   accounts:[], logs:[], matches:0, n:0,
   init(){
-    const names = [['GOJO_X','BD'],['NeonViper','IND'],['ShadowByte','SG'],['PhantomZ','BD'],['VoidWalker','ID']];
+    const names = [['SACHIN_X','BD'],['NeonViper','IND'],['ShadowByte','SG'],['PhantomZ','BD'],['VoidWalker','ID']];
     this.accounts = names.map((p,i) => {
       const exp = 12000 + Math.floor(Math.random()*90000);
       return {uid:String(7640000000+Math.floor(Math.random()*9999999)), nickname:p[0], region:p[1], status:'ONLINE', active_matches:0,
@@ -849,7 +849,7 @@ function exportLogs(){
   const txt = S.buf.map(l => `[${l.time}] ${String(l.level).toUpperCase().padEnd(7)} ${l.message}`).join('\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([txt],{type:'text/plain'}));
-  a.download = `codexgojo-logs-${Date.now()}.txt`; document.body.appendChild(a); a.click(); a.remove();
+  a.download = `sachindev-x-fffz-logs-${Date.now()}.txt`; document.body.appendChild(a); a.click(); a.remove();
   toast('Logs exported','ok');
 }
 
@@ -912,7 +912,7 @@ setInterval(() => {
 
 /* ---------- ticker ---------- */
 (function(){
-  const items = ['<b>CODEXGOJO</b> // multi-match engine armed','auto level-up loop running','press <b>Ctrl K</b> for the command palette','try the Konami code','themes: neon · blood · matrix · ice','<b>CODEXGOJO</b> never sleeps'];
+  const items = ['<b>SachinDev X FFFZ</b> // multi-match engine armed','auto level-up loop running','press <b>Ctrl K</b> for the command palette','try the Konami code','themes: neon · blood · matrix · ice','<b>SachinDev X FFFZ</b> never sleeps'];
   $('#ticker').innerHTML = items.concat(items).map(t => `<span>${t}</span>`).join('');
 })();
 
@@ -983,7 +983,7 @@ document.addEventListener('keydown', e => {
   if(e.key==='Escape'){ closeAll(); return; }
   if(typing) return;
   kpos = (e.key.toLowerCase() === KONAMI[kpos].toLowerCase()) ? kpos+1 : (e.key===KONAMI[0] ? 1 : 0);
-  if(kpos === KONAMI.length){ kpos = 0; toggleRainbow(); confetti(300); jingle(); toast('GOJO MODE UNLOCKED — Infinite Void','ok',4500); return; }
+  if(kpos === KONAMI.length){ kpos = 0; toggleRainbow(); confetti(300); jingle(); toast('FFFZ MODE UNLOCKED — Infinite Void','ok',4500); return; }
   if(e.ctrlKey||e.metaKey||e.altKey) return;
   const k = e.key.toLowerCase();
   if(k==='a'){ e.preventDefault(); openAddModal(); }
@@ -1002,7 +1002,7 @@ document.addEventListener('keydown', e => {
   const finish = () => { el.classList.add('done'); setTimeout(()=>el.remove(), 600); };
   if(reduceMotion || store.get('bootSeen_'+new Date().toDateString(), false) === true){ finish(); return; }
   store.set('bootSeen_'+new Date().toDateString(), true);
-  const lines = ['> initializing CODEXGOJO core …','> loading multi-match engine ........ OK','> arming level-up loop ............. OK','> linking dashboard to backend ..... OK','> all systems GO'];
+  const lines = ['> initializing SachinDev X FFFZ core …','> loading multi-match engine ........ OK','> arming level-up loop ............. OK','> linking dashboard to backend ..... OK','> all systems GO'];
   let i = 0;
   const next = () => { if(!document.body.contains(el)) return; if(i < lines.length){ pre.textContent += lines[i++] + '\n'; setTimeout(next, 260); } else setTimeout(finish, 450); };
   next(); el.onclick = finish;

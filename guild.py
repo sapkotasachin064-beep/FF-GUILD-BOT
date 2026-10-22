@@ -1,9 +1,14 @@
 import json
+import os
 import time
 import requests
 
-# API endpoint (do not change)
-API_BASE = "https://danger-guild-management-web.vercel.app/join"
+# Upstream guild service. Keep the default unless you host your own endpoint.
+# Override with: FFFZ_GUILD_API=https://your-service.example/join
+API_BASE = os.getenv(
+    "FFFZ_GUILD_API",
+    "https://danger-guild-management-web.vercel.app/join",
+)
 
 # File containing the accounts list
 ACCOUNTS_FILE = "accounts.json"
@@ -70,7 +75,7 @@ def join_guild(guild_id, uid, password, session=None):
 
 def main():
     print("=" * 55)
-    print("   Guild Join Bot — Danger Guild Management")
+    print("   SachinDev X FFFZ — Guild Join Bot")
     print("=" * 55)
 
     # ---------- Ask for Guild ID ----------
