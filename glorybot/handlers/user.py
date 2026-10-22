@@ -91,12 +91,12 @@ async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         return
     _set(ctx, kind="onboard", step="ob_name")
     await update.message.reply_text(
-        f"{em('trophy', '🏆')} <b>Welcome to Glory Push!</b>\n\nLet's set up your profile — it takes 10 seconds.\n\n"
+        f"{em('trophy', '🏆')} <b>Welcome to Sachin Dev X FX!</b>\n\nLet's set up your profile — it takes 10 seconds.\n\n"
         "👤 <b>What's your name?</b>", parse_mode=HTML, reply_markup=kb.main_menu())
 
 
 async def cmd_weblogin(update: Update, ctx) -> None:
-    """One-time code that logs the same account (wallet + orders) into the BNY SHOP website."""
+    """One-time code that logs the same account (wallet + orders) into the Sachin Dev X FX website."""
     st = get_settings()
     user = await _need_user(update, ctx)
     if user is None:
@@ -106,9 +106,9 @@ async def cmd_weblogin(update: Update, ctx) -> None:
         return
     from glorybot.web import auth
     code = await auth.make_login_code(user.id)
-    site = st.public_url or "your BNY SHOP website"
+    site = st.public_url or "your Sachin Dev X FX website"
     await update.message.reply_text(
-        f"🌐 <b>BNY SHOP website login</b>\n\nYour one-time code: <code>{code}</code>\n⏳ Valid for {auth.CODE_MINUTES} minutes, works once.\n\n"
+        f"🌐 <b>Sachin Dev X FX website login</b>\n\nYour one-time code: <code>{code}</code>\n⏳ Valid for {auth.CODE_MINUTES} minutes, works once.\n\n"
         f"Open {esc(site)}, choose <b>Login with Telegram code</b> and enter it. "
         "Your wallet and orders are the same on the bot and the website.", parse_mode=HTML)
 
@@ -188,7 +188,7 @@ async def show_home(update, ctx, user: User) -> None:
     provider = ctx.application.bot_data["provider"]
     async with tx() as s:
         w = await ws.get_wallet(s, user.id, _cur(user), lock=False)
-    lines = [f"{em('trophy', '🏆')} <b>Glory Push</b>", "",
+    lines = [f"{em('trophy', '🏆')} <b>Sachin Dev X FX</b>", "",
              f"👋 <b>{esc(_name(user))}</b>", f"💰 Wallet: <b>{fmt_money(w.available, _cur(user))}</b>"]
     try:
         snap = await stock_service.snapshot(provider)

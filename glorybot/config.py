@@ -23,32 +23,32 @@ class Settings(BaseSettings):
 
     provider_mode: str = "mock"  # mock | live
     glory_api_enabled: bool = False
-    glory_api_base_url: str = "https://ffglory.pro"
+    glory_api_base_url: str = "https://glory-api.example.com"  # dummy: put your provider URL in .env
     glory_api_key: SecretStr = SecretStr("")
     glory_api_master_key: SecretStr = SecretStr("")
     glory_api_timeout: float = 20.0
 
-    esewa_number: str = "9827679425"
-    esewa_name: str = "Anil"
-    khalti_number: str = "9827679425"
-    khalti_name: str = "Anil"
+    esewa_number: str = "9800000000"       # dummy
+    esewa_name: str = "Demo User"          # dummy
+    khalti_number: str = "9800000000"      # dummy
+    khalti_name: str = "Demo User"         # dummy
     payment_mode: str = "mock"  # mock | live  (must match provider_mode)
-    apinepal_base_url: str = "https://apinepal.com"
+    apinepal_base_url: str = "https://payments.example.com"  # dummy: put your gateway URL in .env
     apinepal_secret_key: SecretStr = SecretStr("")
     apinepal_public_key: str = ""
     apinepal_qr_provider: str = "fonebiz"  # fonebiz | fonepay
     payment_ui_minutes: int = 15
-    payment_watch_minutes: int = 30  # APINepal keeps the QR valid 30 min; late payments are still honored
+    payment_watch_minutes: int = 30  # the gateway keeps the QR valid 30 min; late payments are still honored
     button_colors: bool = True            # colored buttons (Telegram clients after Feb 2026)
     premium_emoji_buttons: bool = False   # needs bot-owner Premium or Fragment usernames
     premium_emoji_ids: str = ""           # "fire=5368...,trophy=5420..."
     service_window: bool = True           # closed from Sunday 9 PM until Monday 12 AM (business timezone)
-    website_url: str = "www.fflevel.xyz"
-    web_enabled: bool = True              # BNY SHOP website, runs inside the bot process
+    website_url: str = "shop.example.com"
+    web_enabled: bool = True              # Sachin Dev X FX web shop, runs inside the bot process
     web_host: str = "0.0.0.0"
     web_port_raw: int = Field(0, alias="WEB_PORT")   # 0 = use the panel's SERVER_PORT, else 8080
     public_url: str = ""                  # e.g. https://shop.example.com (only used in messages)
-    support_username: str = "ceobny"
+    support_username: str = "example_support"  # dummy
     payment_instructions: str = "Contact support for payment instructions."
     log_level: str = "INFO"
 

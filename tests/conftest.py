@@ -33,4 +33,7 @@ async def db(monkeypatch):
     await seed(config.get_settings(), prov)
     yield prov
     await session.dispose()
-    os.unlink(f.name)
+    try:
+        os.unlink(f.name)
+    except PermissionError:  # Windows may still hold the SQLite file for a moment
+        pass

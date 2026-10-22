@@ -1,7 +1,11 @@
-"""APINepal v2 gateway, built strictly from https://apinepal.com/docs/api.
+"""Payment gateway adapter (dummy endpoint by default).
+
 Auth: `Authorization: Bearer sk_...`. QR: POST /v2/qr/{fonebiz|fonepay}. Status: GET /v2/payments/{id}
 (reading a pending payment triggers a fresh provider check, so polling is the documented fallback to webhooks).
-Idempotency-Key = our identifier, so retrying a timed-out create can never produce two payments."""
+Idempotency-Key = our identifier, so retrying a timed-out create can never produce two payments.
+
+Set APINEPAL_BASE_URL and the API keys in .env to talk to a real gateway. Until then keep
+PAYMENT_MODE=mock and every payment is simulated locally."""
 import logging
 from decimal import Decimal
 

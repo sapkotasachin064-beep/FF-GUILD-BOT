@@ -1,5 +1,5 @@
 """Payments: create a QR / Binance Pay checkout, watch it (polling), and act once the money is verified.
-Nepali rupees only, through APINepal QR. Two kinds of payment:
+Nepali rupees only, through a QR gateway. Two kinds of payment:
   ORDER  - pay for an order; the order is placed automatically (no admin step)
   TOPUP  - add balance to the wallet
 Safety rules: the paid amount must equal what we asked for; a payment is claimed by an atomic PENDING->PAID
@@ -166,7 +166,7 @@ async def _create_intent(app, user: User, *, kind: str, currency: str, amount: D
             row.status, row.note = "FAILED", f"create failed: {e}"[:200]
         log.warning("payment create failed (%s): %s (HTTP %s)", currency, e, e.status)
         from glorybot.handlers.common import notify_admins
-        hint = "Check APINEPAL_SECRET_KEY and that FoneBiz/Fonepay is connected in your APINepal dashboard."
+        hint = "Check APINEPAL_SECRET_KEY and that FoneBiz/Fonepay is connected in your payment gateway dashboard."
         await notify_admins(app.bot, f"🔴 <b>{currency} payment could not be created</b>: {_esc(e)}\n{hint}")
         raise
     async with tx() as s:
@@ -384,7 +384,7 @@ async def _tick(app, last_poll: dict, last_edit: dict, now_m: float) -> None:
                                     .values(status="REVIEW", note="could not verify at close").execution_options(synchronize_session=False))
                 from glorybot.handlers.common import notify_admins
                 await notify_admins(app.bot, f"🟡 Could not verify {it.currency} payment <code>{_esc(it.provider_payment_id)}</code> "
-                                             f"({_esc(it.identifier)}). Check it in your APINepal dashboard.")
+                                             f"({_esc(it.identifier)}). Check it in your payment gateway dashboard.")
             continue
         result = await apply_state(app, it, state)
         if final and result == "pending":

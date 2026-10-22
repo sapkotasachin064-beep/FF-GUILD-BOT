@@ -78,7 +78,7 @@ async def test_paid_qr_places_order_and_sends_bot_request_message(db):
     await _drain(app)
     async with read() as s:
         o = (await s.execute(select(Order))).scalar_one()
-    assert o.order_number == "BNY-1001" and o.status == S.SUBMITTED_TO_PROVIDER and len(db.calls) == 2
+    assert o.order_number == "SDX-1001" and o.status == S.SUBMITTED_TO_PROVIDER and len(db.calls) == 2
     assert o.guild_name == "Mock Guild 12345678"
     w = await _wallet(u)
     assert w.available == Decimal("0.00") and w.reserved == Decimal("0.00") and w.lifetime_spent == Decimal("750.00")

@@ -1,4 +1,4 @@
-"""Adapter for the ffglory.pro reseller API, built strictly from the supplied documentation.
+"""Adapter for a glory reseller API (dummy endpoint by default), built from its supplied documentation.
 
 Auth: `x-api-key: <master key>` header AND `?api_key=<account key>` query param on every
 call except GET /api/pricing (public).

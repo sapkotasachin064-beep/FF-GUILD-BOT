@@ -29,7 +29,7 @@ class OrderError(Exception):
 
 
 def order_number_for(order_id: int) -> str:
-    return f"BNY-{1000 + order_id}"
+    return f"SDX-{1000 + order_id}"
 
 
 # ---------------------------------------------------------------- prices

@@ -1,4 +1,4 @@
-"""BNY SHOP website — a JSON API + one single-page front end, served from inside the bot process.
+"""Sachin Dev X FX web shop — a JSON API + one single-page front end, served from inside the bot process.
 It uses the very same services as the Telegram bot (orders, wallet, stock, payments), so both always agree.
 Secrets (provider keys, payment keys) never leave the server; the browser only talks to /api/*."""
 import asyncio
@@ -43,7 +43,7 @@ from glorybot.web import auth
 
 log = logging.getLogger(__name__)
 STATIC = Path(__file__).parent / "static"
-COOKIE = "bny_session"
+COOKIE = "sdx_session"
 PAGE = 10
 TX_LABEL = {"DEPOSIT": "Added", "RELEASE": "Returned", "SPEND": "Spent", "REFUND": "Refund",
             "ADJUSTMENT": "Adjusted", "RESERVE": "Held", "WHEEL_PRIZE": "Bonus"}
@@ -135,7 +135,7 @@ def api(*, login=True, admin=False, write=False):
     def deco(f):
         async def handler(request: Request):
             try:
-                if write and request.headers.get("x-requested-with") != "bny":
+                if write and request.headers.get("x-requested-with") != "sdx":
                     raise ApiError("Bad request.", 403)
                 user = await current_user(request) if (login or admin) else None
                 if admin and not is_admin_user(user):
@@ -227,7 +227,7 @@ async def _login_response(request: Request, u: User) -> JSONResponse:
 
 async def register(request: Request):
     try:
-        if request.headers.get("x-requested-with") != "bny":
+        if request.headers.get("x-requested-with") != "sdx":
             raise ApiError("Bad request.", 403)
         rate_limit(request, "reg", 5, 600)
         d = await body(request)
@@ -266,7 +266,7 @@ async def register(request: Request):
 
 async def login(request: Request):
     try:
-        if request.headers.get("x-requested-with") != "bny":
+        if request.headers.get("x-requested-with") != "sdx":
             raise ApiError("Bad request.", 403)
         rate_limit(request, "login", 10, 300)
         d = await body(request)
@@ -287,7 +287,7 @@ async def login(request: Request):
 
 
 async def logout(request: Request):
-    if request.headers.get("x-requested-with") != "bny":
+    if request.headers.get("x-requested-with") != "sdx":
         return JSONResponse({"error": "Bad request."}, status_code=403)
     await auth.drop_session(request.cookies.get(COOKIE))
     resp = JSONResponse({"ok": True})
@@ -778,7 +778,7 @@ async def start(ptb_app) -> _Server:
     server = _Server(cfg)
     ptb_app.bot_data["web_server"] = server
     spawn(ptb_app, server.serve())
-    log.info("BNY SHOP website listening on %s:%s", st.web_host, st.web_port)
+    log.info("Sachin Dev X FX website listening on %s:%s", st.web_host, st.web_port)
     return server
 
 

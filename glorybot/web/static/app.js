@@ -1,4 +1,4 @@
-/* BNY GLORY BOT — BNY SHOP front end (no framework, no external files). All data comes from /api/*. */
+/* SACHIN DEV X FX — GLORY SHOP front end (no framework, no external files). All data comes from /api/*. */
 "use strict";
 const $ = (s, r = document) => r.querySelector(s);
 const app = $("#app");
@@ -7,7 +7,7 @@ const S = { me: null, offset: 0, timers: [], gen: 0 };   // gen changes on every
 
 /* ---------- api ---------- */
 async function api(path, body, method) {
-  const opt = { method: method || (body === undefined ? "GET" : "POST"), credentials: "same-origin", headers: { "X-Requested-With": "bny" } };
+  const opt = { method: method || (body === undefined ? "GET" : "POST"), credentials: "same-origin", headers: { "X-Requested-With": "sdx" } };
   if (body !== undefined) { opt.headers["Content-Type"] = "application/json"; opt.body = JSON.stringify(body); }
   let r, data = {};
   try { r = await fetch(path, opt); } catch { throw new Error("No connection. Check your internet and try again."); }
@@ -87,7 +87,7 @@ async function route() {
 
 /* ---------- login ---------- */
 function vLogin() {
-  app.innerHTML = `<div class="hero"><div class="logo">BNY <b>GLORY</b> BOT</div><div class="tag" style="margin-top:12px">BNY SHOP · Free Fire Guild Glory Push</div>
+  app.innerHTML = `<div class="hero"><div class="logo">SACHIN <b>DEV X FX</b></div><div class="tag" style="margin-top:12px">GLORY SHOP · Free Fire Guild Glory Push</div>
   <p>Buy credit with Nepali QR, pick your region, enter your Guild ID and start the glory bot — all in a few taps.</p></div>
   <div class="card glow auth"><div class="seg" id="seg"><button data-t="login" class="on">Login</button><button data-t="reg">Create account</button><button data-t="tg">Telegram code</button></div><div id="form"></div></div>`;
   const form = $("#form");
@@ -391,7 +391,7 @@ function vMore() {
 /* ---------- rules / support ---------- */
 async function vRules() { const r = await api("/api/rules"); app.innerHTML = `<div class="card glow"><div class="rules">${r.html}</div></div>`; }
 function vSupport() {
-  const sup = (S.me && S.me.support) || "ceobny";
+  const sup = (S.me && S.me.support) || "example_support";
   app.innerHTML = `<div class="card glow"><div class="title">🛟 Support</div><p>Chat with our admin on Telegram: <b>@${esc(sup)}</b></p>
     <div class="actions"><a class="btn green" target="_blank" rel="noopener" href="https://t.me/${encodeURIComponent(sup)}">💬 Chat on Telegram</a>${S.me ? `<a class="btn blue" target="_blank" rel="noopener" href="${esc(S.me.guild_site)}">🌐 Guild site</a>` : ""}</div></div>`;
 }

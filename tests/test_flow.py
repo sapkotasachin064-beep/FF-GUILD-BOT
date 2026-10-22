@@ -50,10 +50,10 @@ async def test_insufficient_funds(db):
             await osv.create_order(s, u, "BR", "12345678", 1, True)  # 375 > 300
 
 
-async def test_order_numbers_start_at_bny_1001_and_price_snapshot(db):
+async def test_order_numbers_start_at_sdx_1001_and_price_snapshot(db):
     u = await _user()
     o = await _order(u, 2)
-    assert o.order_number == "BNY-1001" and o.total_amount == Decimal("750.00")
+    assert o.order_number == "SDX-1001" and o.total_amount == Decimal("750.00")
     async with tx() as s:
         await osv.set_price(s, Decimal("400"), 1, "NPR")
     async with tx() as s:
@@ -67,7 +67,7 @@ async def test_order_numbers_start_at_bny_1001_and_price_snapshot(db):
     async with tx() as s:
         await ws.deposit(s, u.id, Decimal("500"), "more", "test")
     o2 = await _order(u, 1)
-    assert o2.order_number == "BNY-1002" and o2.unit_price == Decimal("400.00")
+    assert o2.order_number == "SDX-1002" and o2.unit_price == Decimal("400.00")
 
 
 async def test_unclear_answer_that_did_create_is_detected(db):

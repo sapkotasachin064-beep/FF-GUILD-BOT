@@ -183,7 +183,7 @@ async def on_callback(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         await reply(update, f"🏁 {o.order_number} marked completed.", kb.back_admin())
     elif act == "se":
         _set(ctx, step="adm_search_o" if p[2] == "o" else "adm_search_u")
-        await reply(update, "🔎 Send an order number (BNY-1001), guild UID, name or Telegram ID:" if p[2] == "o"
+        await reply(update, "🔎 Send an order number (SDX-1001), guild UID, name or Telegram ID:" if p[2] == "o"
                     else "🔎 Send a name, @username or Telegram ID:", M([[btn("⬅️ Back", "adm:home")]]))
     elif act == "og":
         o, u, r, reqs = await _load(int(p[2]))
@@ -473,7 +473,7 @@ async def _payments(update, p) -> None:
     icon = {"PAID": "🟢", "PENDING": "🟡", "CREDITED": "🟡", "FAILED": "🔴", "MISMATCH": "🔴", "REVIEW": "🟠", "CLOSED": "⚪"}
     btns = [[btn(f"{icon.get(i.status, '⚪')} {fmt_money(i.amount, i.currency)} · {i.kind.lower()} · {i.status}", f"adm:pmv:{i.id}")]
             for i in rows] + [[btn("⬅️ Back", "adm:home")]]
-    await reply(update, "💳 <b>Latest payments</b>\n🟠 REVIEW / 🔴 MISMATCH need a manual look in your APINepal dashboard.", M(btns))
+    await reply(update, "💳 <b>Latest payments</b>\n🟠 REVIEW / 🔴 MISMATCH need a manual look in your payment gateway dashboard.", M(btns))
 
 
 async def _api_status(update, ctx, provider) -> None:
