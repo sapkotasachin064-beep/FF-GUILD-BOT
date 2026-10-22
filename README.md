@@ -2,10 +2,6 @@
 
 Free Fire squad automation suite with a real-time web dashboard.
 
-`SachinDev X FFFZ` is the rebranded name for this project. Old labels such as
-`CODEXGOJO`, `CGU`, `TEAM RBC`, and `RAW ANON` have been removed from the source
-and dashboard.
-
 > **Disclaimer:** This project uses unofficial game protocols and automates
 > gameplay. It can violate the Free Fire Terms of Service and can get accounts
 > banned. Use it only with accounts you own and only where it is legal for you
